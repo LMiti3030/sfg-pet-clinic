@@ -1,19 +1,11 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.services;
 
-import mititelu.laura.guru.springframework.sfgpetclinic.model.Owner;
 import mititelu.laura.guru.springframework.sfgpetclinic.model.Pet;
-
-import java.util.Set;
 
 /**
  * @author LMiti3030
  * created on 02.12.2022
  */
-public interface PetService {
+public interface PetService extends CrudService<Pet, Long>{
 
-    Pet findById(Long id);
-
-    Pet save(Pet pet);
-
-    Set<Pet> findAll();
 }
