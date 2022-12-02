@@ -14,7 +14,7 @@
     </parent>
     <groupId>mititelu.laura.guru.springframework</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>sfg-pet-clinic</name>
     <description>Pet clinic webapp developed during Spring Framework 5 course udemy (springframework guru)</description>
     <properties>
@@ -43,7 +43,7 @@
     </build>
     <scm>
         <developerConnection>scm:git:https://github.com/LMiti3030/sfg-pet-clinic.git</developerConnection>
-      <tag>sfg-pet-clinic-0.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
