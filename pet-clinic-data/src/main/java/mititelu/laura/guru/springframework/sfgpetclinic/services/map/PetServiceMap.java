@@ -1,7 +1,7 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.services.map;
 
 import mititelu.laura.guru.springframework.sfgpetclinic.model.Pet;
-import mititelu.laura.guru.springframework.sfgpetclinic.services.CrudService;
+import mititelu.laura.guru.springframework.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
@@ -9,7 +9,7 @@ import java.util.Set;
  * @author LMiti3030
  * created on 02.12.2022
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findAll() {
         return super.findAll();

@@ -1,7 +1,7 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.services.map;
 
 import mititelu.laura.guru.springframework.sfgpetclinic.model.Vet;
-import mititelu.laura.guru.springframework.sfgpetclinic.services.CrudService;
+import mititelu.laura.guru.springframework.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
@@ -9,7 +9,7 @@ import java.util.Set;
  * @author LMiti3030
  * created on 02.12.2022
  */
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet,Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
