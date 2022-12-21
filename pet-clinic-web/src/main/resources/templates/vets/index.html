@@ -5,6 +5,25 @@
     <title>List of Vets</title>
 </head>
 <body>
-    <h1 th:text="'List of Vets'">List of Vets...</h1>
+    <h1 th:text="'List of Vets'">List of Vets</h1>
+<!--comment for IntelliJ so it understands the type of vet-->
+<!--    /*@thymesVar id="vet" type="mititelu.laura.guru.springframework.sfgpetclinic.model.Vet" */-->
+    <table>
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--  owner?.id ? is null safe operator  -->
+        <tr th:each="vet : ${vets}">
+            <td th:text="${vet?.id}">1</td>
+            <td th:text="${vet?.firstName}">Joe</td>
+            <td th:text="${vet?.lastName}">Buck</td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
