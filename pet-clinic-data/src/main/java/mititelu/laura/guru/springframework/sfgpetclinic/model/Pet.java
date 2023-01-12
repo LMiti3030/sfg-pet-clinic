@@ -8,11 +8,21 @@ import java.time.LocalDate;
  */
 public class Pet extends BaseEntity{
 
+    private String name;
+
     private LocalDate birthDate;
 
     private PetType petType;
 
     private Owner owner;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public LocalDate getBirthDate() {
         return birthDate;
