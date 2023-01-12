@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>List of Vets</title>
 </head>
 <body>
-    <h1 th:text="'List of Vets'">List of Vets</h1>
+    <h2 th:text="'List of Vets'">List of Vets</h2>
 <!--comment for IntelliJ so it understands the type of vet-->
 <!--    /*@thymesVar id="vet" type="mititelu.laura.guru.springframework.sfgpetclinic.model.Vet" */-->
-    <table>
+    <table id="vets" class="table table-striped">
         <thead>
         <tr>
-            <td>Id</td>
-            <td>First Name</td>
-            <td>Last Name</td>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
         </tr>
         </thead>
         <tbody>
