@@ -1,12 +1,12 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.services.map;
 
 import mititelu.laura.guru.springframework.sfgpetclinic.model.Specialty;
-import mititelu.laura.guru.springframework.sfgpetclinic.services.SpecialitiesService;
+import mititelu.laura.guru.springframework.sfgpetclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-public class SpecialtyMapService extends AbstractMapService<Specialty, Long> implements SpecialitiesService {
+public class SpecialtyMapService extends AbstractMapService<Specialty, Long> implements SpecialityService {
     @Override
     public Set<Specialty> findAll() {
         return super.findAll();
