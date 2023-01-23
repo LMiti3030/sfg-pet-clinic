@@ -1,5 +1,6 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,12 +8,20 @@ import java.util.Set;
  * @author LMiti3030
  * created on 02.12.2022
  */
+@Entity
+@Table(name="owners")
 public class Owner extends Person{
 
+    @Column(name="address")
     private String address;
+    @Column(name="city")
     private String city;
+
+    @Column(name="telephone")
     private String telephone;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    //if i delete an owner, the pets will also be deleted
     private Set<Pet> pets = new HashSet<>();
 
 
