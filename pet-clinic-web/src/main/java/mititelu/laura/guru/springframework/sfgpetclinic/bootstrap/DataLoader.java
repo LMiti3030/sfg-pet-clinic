@@ -130,7 +130,7 @@ public class DataLoader implements CommandLineRunner {
         anotherVisit.setDate(LocalDate.of(2023,01,24));
         anotherVisit.setDescription("Pregnant");
 
-        visitService.save(visit);
+        visitService.save(anotherVisit);
 
         System.out.println("Loaded visits...");
     }
