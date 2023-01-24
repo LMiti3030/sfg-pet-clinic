@@ -1,13 +1,11 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.bootstrap;
 
 import mititelu.laura.guru.springframework.sfgpetclinic.model.*;
-import mititelu.laura.guru.springframework.sfgpetclinic.services.OwnerService;
-import mititelu.laura.guru.springframework.sfgpetclinic.services.PetTypeService;
-import mititelu.laura.guru.springframework.sfgpetclinic.services.SpecialityService;
-import mititelu.laura.guru.springframework.sfgpetclinic.services.VetService;
+import mititelu.laura.guru.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 /**
@@ -24,12 +22,15 @@ public class DataLoader implements CommandLineRunner {
 
     private final SpecialityService specialityService;
 
+    private final VisitService visitService;
+
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialityService specialityService){
+                      SpecialityService specialityService, VisitService visitService){
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -115,5 +116,22 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Loaded vets...");
+
+
+        Visit visit = new Visit();
+        visit.setPet(georgesPet);
+        visit.setDate(LocalDate.of(2023,01,13));
+        visit.setDescription("Less active");
+
+        visitService.save(visit);
+
+        Visit anotherVisit = new Visit();
+        anotherVisit.setPet(laurasPet);
+        anotherVisit.setDate(LocalDate.of(2023,01,24));
+        anotherVisit.setDescription("Pregnant");
+
+        visitService.save(visit);
+
+        System.out.println("Loaded visits...");
     }
 }
