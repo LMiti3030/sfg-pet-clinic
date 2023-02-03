@@ -1,13 +1,19 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
  * @author LMiti3030
  * created on 02.12.2022
  */
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name="owners")
 public class Owner extends Person{
@@ -24,36 +30,32 @@ public class Owner extends Person{
     //if i delete an owner, the pets will also be deleted
     private Set<Pet> pets = new HashSet<>();
 
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
+    @Builder
+    public Owner(Long id, String firstName, String lastName,String address, String city, String telephone, Set<Pet> pets) {
+        super(id, firstName, lastName);
         this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
         this.telephone = telephone;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
         this.pets = pets;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Owner owner = (Owner) o;
+
+        if (!Objects.equals(address, owner.address)) return false;
+        if (!Objects.equals(city, owner.city)) return false;
+        return Objects.equals(telephone, owner.telephone);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = address != null ? address.hashCode() : 0;
+        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
+        return result;
     }
 }

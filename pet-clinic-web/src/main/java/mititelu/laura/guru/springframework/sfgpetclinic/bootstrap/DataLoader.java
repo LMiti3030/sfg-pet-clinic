@@ -5,7 +5,6 @@ import mititelu.laura.guru.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 /**
@@ -59,13 +58,8 @@ public class DataLoader implements CommandLineRunner {
         Specialty savedRadiology = specialityService.save(radiology);
 
         Specialty surgery = new Specialty();
-        radiology.setDescription("Surgery");
+        surgery.setDescription("Surgery");
         Specialty savedSurgery = specialityService.save(surgery);
-
-        Specialty dentistry = new Specialty();
-        radiology.setDescription("Dentistry");
-        Specialty savedDentistry = specialityService.save(dentistry);
-
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Laura");
@@ -99,6 +93,10 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
+        //        using builder-
+        Owner owner3 = Owner.builder().firstName("Andrei").lastName("Georgescu").city("Ploiesti").build();
+        ownerService.save(owner3);
+
         System.out.println("Loaded owners...");
 
         Vet vet1 = new Vet();
@@ -120,18 +118,21 @@ public class DataLoader implements CommandLineRunner {
 
         Visit visit = new Visit();
         visit.setPet(georgesPet);
-        visit.setDate(LocalDate.of(2023,01,13));
+        visit.setDate(LocalDate.of(2023,1,13));
         visit.setDescription("Less active");
 
         visitService.save(visit);
 
         Visit anotherVisit = new Visit();
         anotherVisit.setPet(laurasPet);
-        anotherVisit.setDate(LocalDate.of(2023,01,24));
+        anotherVisit.setDate(LocalDate.of(2023,1,24));
         anotherVisit.setDescription("Pregnant");
 
         visitService.save(anotherVisit);
 
         System.out.println("Loaded visits...");
+
+
+
     }
 }
