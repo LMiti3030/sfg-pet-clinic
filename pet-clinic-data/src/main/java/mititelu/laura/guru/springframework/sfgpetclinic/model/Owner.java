@@ -1,6 +1,9 @@
 package mititelu.laura.guru.springframework.sfgpetclinic.model;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -46,6 +49,8 @@ public class Owner extends Person{
 
         Owner owner = (Owner) o;
 
+        if (!Objects.equals(getFirstName(), owner.getFirstName())) return false;
+        if (!Objects.equals(getLastName(), owner.getLastName())) return false;
         if (!Objects.equals(address, owner.address)) return false;
         if (!Objects.equals(city, owner.city)) return false;
         return Objects.equals(telephone, owner.telephone);
@@ -56,6 +61,8 @@ public class Owner extends Person{
         int result = address != null ? address.hashCode() : 0;
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
+        result = 31 * result + (getFirstName() != null ? getFirstName().hashCode() : 0);
+        result = 31 * result + (getLastName() != null ? getLastName().hashCode() : 0);
         return result;
     }
 }
