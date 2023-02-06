@@ -20,6 +20,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     private final PetTypeService petTypeService;
     private final PetService petService;
+    private final String lastName = "Smith";
 
     public OwnerMapService(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
@@ -74,6 +75,10 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }
