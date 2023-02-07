@@ -32,8 +32,6 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      #- run: mvn install -DskipTests
-
       - run: mvn dependency:go-offline
 
       - save_cache:
@@ -42,9 +40,6 @@ jobs:
           key: sfg-pet-clinic-{{ checksum "pom.xml" }}
 
       # Then run your tests!
-      #- run:
-         #name: Test
-         #command: mvn integration-test
       - run:
           name: Test
           command: mvn test -DfailIfNoTests=false
