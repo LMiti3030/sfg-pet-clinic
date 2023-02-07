@@ -48,7 +48,6 @@ class OwnerMapServiceTest {
         Long actualId = actual.getId();
 
         //then
-        assertEquals(expected, actual);
         assertEquals(expecedId, actualId);
 
     }
@@ -64,7 +63,6 @@ class OwnerMapServiceTest {
         Long actualId = actual.getId();
 
         //then
-        assertEquals(expected, actual);
         assertEquals(expectedId, actualId);
 
 

@@ -42,7 +42,8 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn test -DfailIfNoTests=false
+          command: mvn integration-test
+          #command: mvn test -DfailIfNoTests=false
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
