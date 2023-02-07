@@ -32,6 +32,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run: mvn install -DskipTests
+
       - run: mvn dependency:go-offline
 
       - save_cache:
@@ -41,8 +43,11 @@ jobs:
 
       # Then run your tests!
       - run:
-          name: Test
-          command: mvn test
+         name: Test
+         command: mvn integration-test
+      #- run:
+       #   name: Test
+        #  command: mvn test
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
