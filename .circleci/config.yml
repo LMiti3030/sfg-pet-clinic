@@ -42,7 +42,7 @@ jobs:
       # Then run your tests!
       - run:
           name: Test
-          command: mvn integration-test
+          command: mvn test
           #command: mvn test -DfailIfNoTests=false
 
 # Invoke jobs via workflows
